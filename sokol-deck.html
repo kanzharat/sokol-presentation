@@ -215,6 +215,11 @@ h1 .fill{color:#fff;-webkit-text-stroke:0}
 .s-title .giant{text-shadow:none}
 .s-final .hud,.s-title .hud{display:none}
 .s-title .logo-top{position:absolute;top:110px;left:120px;z-index:10;height:110px;width:auto;max-width:none}
+/* intro overlay: full-screen logo → flies to top-left, then reveals slide 1 */
+#intro{position:fixed;inset:0;z-index:9999;background:#06070b;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease}
+#intro img{height:300px;width:auto;transform-origin:center;transition:transform 1s cubic-bezier(.5,.05,.2,1),height 1s cubic-bezier(.5,.05,.2,1)}
+#intro.go img{height:110px;transform:translate(calc(-50vw + 120px + 50%),calc(-50vh + 110px + 50%))}
+#intro.hide{opacity:0;pointer-events:none}
 .tick-line{position:absolute;left:0;right:0;bottom:64px;z-index:12;overflow:hidden;border-top:1px solid #232c40;border-bottom:1px solid #232c40;
  background:rgba(8,10,16,.82);height:58px;display:flex;align-items:center}
 .tick-line .in{display:flex;gap:64px;white-space:nowrap;font-family:var(--mono);font-size:17px;letter-spacing:.3em;color:#9fb4dd;
@@ -476,10 +481,15 @@ h1 .fill{color:#fff;-webkit-text-stroke:0}
 .wl .n{font-family:'Orbitron','Russo One',sans-serif;font-weight:900;font-size:44px;color:transparent;-webkit-text-stroke:1.6px #4d7dff;flex:0 0 90px}
 .wl b{color:#fff}
 /* final */
-.s-final .ctr-wrap{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.s-final .lgB{height:190px;mix-blend-mode:screen;max-width:none}
-.contacts{display:flex;gap:34px;margin-top:60px;font-family:var(--mono);font-size:21px;letter-spacing:.12em;color:#bccaea}
+.s-final .ctr-wrap{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;left:120px;right:560px}
+.s-final .lgB{height:170px;mix-blend-mode:screen;max-width:none}
+.contacts{display:flex;flex-direction:column;gap:18px;margin-top:54px;font-family:var(--mono);font-size:22px;letter-spacing:.12em;color:#bccaea;align-items:flex-start}
 .contacts span{border:1px solid #2a3650;border-radius:10px;padding:16px 28px;background:rgba(13,18,30,.7)}
+/* QR справа на белой подложке */
+.s-final .qr-box{position:absolute;right:120px;top:50%;transform:translateY(-50%);z-index:11;display:flex;flex-direction:column;align-items:center;gap:22px}
+.s-final .qr-box .qimg{width:340px;height:340px;background:#fff;border-radius:20px;padding:22px;box-shadow:0 24px 64px rgba(0,0,0,.6)}
+.s-final .qr-box .qimg img{width:100%;height:100%;display:block}
+.s-final .qr-box .qcap{font-family:var(--mono);font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:#cdd6e8}
 
 /* === CONTROLS (outside stage) === */
 .deck-controls{display:flex;gap:14px;left:auto;right:24px;bottom:18px;transform:none}
@@ -515,6 +525,7 @@ body.editing .deck-controls{display:none}
 </style>
 </head>
 <body>
+<div id="intro"><img src="assets/logo.svg" alt="Sokol"></div>
 <div class="deck-viewport"><div class="deck-stage" id="stage">
 
 <!-- ============ A1 · TITLE ============ -->
@@ -841,6 +852,10 @@ BALL</div>
       <span class="rv d6">Almaty, Kazakhstan</span>
     </div>
   </div>
+  <div class="qr-box rv d3">
+    <div class="qimg"><img src="assets/qr-sokol.png" alt="Scan for sokol.kz"></div>
+    <div class="qcap">Scan to visit · sokol.kz</div>
+  </div>
 </section>
 
 </div></div>
@@ -1166,6 +1181,17 @@ activate(startIdx,false);
 if(slides[startIdx]===smorph&&Q.has('step'))mGo(Math.min(TRACKS.length-1,Math.max(0,+Q.get('step')||0)));
 if(slides[startIdx]===sdrum&&Q.has('step')){eIdx=Math.min(EVENTS.length-1,Math.max(0,+Q.get('step')||0));drumRender();}
 if(Q.has('edit'))setEdit(true);
+
+/* intro: full-screen logo flies to top-left, then reveals slide 1 */
+(function(){
+  const intro=document.getElementById('intro');
+  if(!intro)return;
+  // пропускаем интро при открытии конкретного слайда / режиме правки / notrans
+  if(Q.has('slide')||Q.has('edit')||Q.has('zt')||NOTRANS){intro.remove();return;}
+  setTimeout(()=>intro.classList.add('go'),700);      // лого летит в угол
+  setTimeout(()=>intro.classList.add('hide'),1750);   // оверлей гаснет
+  setTimeout(()=>intro.remove(),2400);                // убираем из DOM
+})();
 </script>
 </body>
 </html>
