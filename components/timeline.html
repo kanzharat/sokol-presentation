@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- Motion-graphic component: animated roadmap timeline. Phases are aspirational — edit nodes[]. -->
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roadmap Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0a0a0f;--primary:#115ffc;--accent:#ff5733;--warm:#ff8c42;--ink:#f4f5fa;--muted:#8a91a6}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:var(--night);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;overflow:hidden;color:var(--ink)}
+.wrap{width:min(90vw,1100px);padding:clamp(16px,3vw,34px)}
+.title{font-family:'Orbitron';font-weight:700;font-size:clamp(.95rem,2.4vw,1.7rem);letter-spacing:.04em;margin-bottom:clamp(24px,5vh,52px);display:flex;align-items:center;gap:.6em}
+.title::before{content:"";width:1.6em;height:4px;background:var(--accent)}
+.title small{font-family:'Inter';font-weight:300;color:var(--muted);font-size:.5em;letter-spacing:.2em;text-transform:uppercase}
+.tl{position:relative;display:grid;grid-template-columns:repeat(4,1fr)}
+.tl::before{content:"";position:absolute;left:6%;right:6%;top:11px;height:3px;background:rgba(122,140,200,.18);border-radius:3px}
+.tl::after{content:"";position:absolute;left:6%;top:11px;height:3px;width:0;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:3px;box-shadow:0 0 10px rgba(17,95,252,.5);animation:line 2.6s cubic-bezier(.3,.7,.3,1) forwards}
+@keyframes line{to{width:88%}}
+.node{position:relative;text-align:center;padding:0 clamp(6px,1vw,16px)}
+.dot{width:24px;height:24px;border-radius:50%;background:var(--night);border:3px solid #2b3450;margin:0 auto;position:relative;z-index:2;transition:.4s}
+.dot::after{content:"";position:absolute;inset:5px;border-radius:50%;background:transparent;transition:.4s}
+.node.on .dot{border-color:var(--primary);box-shadow:0 0 0 5px rgba(17,95,252,.16)}
+.node.on .dot::after{background:var(--primary)}
+.node:last-child.on .dot{border-color:var(--accent);box-shadow:0 0 0 5px rgba(255,87,51,.18)}
+.node:last-child.on .dot::after{background:var(--accent)}
+.ph{font-family:'JetBrains Mono',monospace;font-size:clamp(.5rem,1.1vw,.75rem);letter-spacing:.18em;color:var(--warm);margin-top:16px;opacity:0;transform:translateY(8px);transition:.5s}
+.h{font-family:'Orbitron';font-weight:700;font-size:clamp(.72rem,1.7vw,1.15rem);margin-top:8px;opacity:0;transform:translateY(8px);transition:.5s}
+.d{font-size:clamp(.56rem,1.2vw,.85rem);color:var(--muted);line-height:1.45;margin-top:8px;opacity:0;transform:translateY(8px);transition:.5s}
+.node.on .ph,.node.on .h,.node.on .d{opacity:1;transform:translateY(0)}
+.note{margin-top:clamp(20px,4vh,40px);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.04em}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.tl::after{width:88%}.node{opacity:1}.ph,.h,.d{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="title">Дорожная карта <small>Roadmap</small></div>
+  <div class="tl" id="tl"></div>
+  <div class="note">* этапы — целевая стратегия комплекса, отредактируем под ваши сроки</div>
+</div>
+<script>
+const nodes=[
+  {ph:'ЭТАП I', h:'Запуск', d:'Трассы, отель и инфраструктура введены в строй'},
+  {ph:'ЭТАП II', h:'Локальные серии', d:'Дрифт, картинг, драг — уже проводятся'},
+  {ph:'ЭТАП III', h:'Международные', d:'WTCC · DTM · Formula · Super Formula'},
+  {ph:'ЭТАП IV', h:'Мировой уровень', d:'MotoGP · FIM Superbike'},
+];
+const tl=document.getElementById('tl');
+tl.innerHTML=nodes.map(n=>`<div class="node"><div class="dot"></div><div class="ph">${n.ph}</div><div class="h">${n.h}</div><div class="d">${n.d}</div></div>`).join('');
+const els=[...document.querySelectorAll('.node')];
+function run(){
+  els.forEach(e=>e.classList.remove('on'));
+  els.forEach((e,i)=>setTimeout(()=>e.classList.add('on'),500+i*620));
+}
+run();setInterval(run,5600);
+</script>
+</body>
+</html>

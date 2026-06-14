@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Motion-graphic component: location / region pin near Almaty. Reusable in deck. -->
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Location</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0a0a0f;--primary:#115ffc;--accent:#ff5733;--warm:#ff8c42;--ink:#f4f5fa;--muted:#8a91a6}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:radial-gradient(120% 100% at 70% 0%,#101320,#06070b 70%);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;overflow:hidden;color:var(--ink)}
+.scene{position:relative;width:min(86vw,860px);aspect-ratio:16/8}
+svg{width:100%;height:100%;overflow:visible}
+.grid line{stroke:rgba(122,140,200,.08)}
+.region{fill:rgba(17,95,252,.06);stroke:rgba(17,95,252,.5);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s ease forwards .3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.road{stroke:rgba(255,140,66,.5);stroke-width:2;fill:none;stroke-dasharray:5 6;animation:flow 1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-11}}
+.city{fill:#cbd2e2}
+.pin{transform-origin:center;animation:drop .8s cubic-bezier(.2,.8,.2,1) forwards 1.4s;opacity:0}
+@keyframes drop{0%{opacity:0;transform:translateY(-26px)}100%{opacity:1;transform:translateY(0)}}
+.pulse{fill:var(--accent);opacity:.5;transform-box:fill-box;transform-origin:center;animation:pulse 2.2s ease-out infinite 1.8s}
+@keyframes pulse{0%{transform:scale(.4);opacity:.6}100%{transform:scale(3.4);opacity:0}}
+.txt{position:absolute;left:6%;top:10%}
+.kic{font-family:'JetBrains Mono',monospace;letter-spacing:.34em;color:var(--warm);text-transform:uppercase;font-size:clamp(.5rem,1.2vw,.8rem)}
+.big{font-family:'Orbitron';font-weight:900;font-size:clamp(1.4rem,4.4vw,3rem);line-height:1;margin-top:.4em}
+.small{color:var(--muted);font-size:clamp(.6rem,1.4vw,1rem);margin-top:.7em;max-width:18ch;line-height:1.5}
+.chips{position:absolute;left:6%;bottom:9%;display:flex;gap:clamp(8px,1.4vw,18px);flex-wrap:wrap}
+.chip{font-family:'JetBrains Mono',monospace;font-size:clamp(.5rem,1.1vw,.75rem);letter-spacing:.08em;color:#cfd5e6;border:1px solid #283042;border-radius:20px;padding:6px 12px;background:rgba(12,16,26,.6)}
+.chip b{color:var(--primary)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.pin{opacity:1}.region{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="scene">
+  <svg viewBox="0 0 800 400">
+    <g class="grid">
+      <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="300" x2="800" y2="300"/>
+      <line x1="200" y1="0" x2="200" y2="400"/><line x1="400" y1="0" x2="400" y2="400"/><line x1="600" y1="0" x2="600" y2="400"/>
+    </g>
+    <!-- abstract region (SE Kazakhstan) -->
+    <path class="region" pathLength="1" d="M470 120 C 540 100 640 110 700 150 C 740 178 720 230 660 250 C 600 270 560 300 500 290 C 450 282 430 250 440 210 C 446 180 440 134 470 120 Z"/>
+    <!-- road from Almaty to Sokol -->
+    <path class="road" d="M566 250 L612 196"/>
+    <!-- Almaty city -->
+    <circle class="city" cx="566" cy="250" r="4"/>
+    <text x="540" y="276" font-family="JetBrains Mono" font-size="13" fill="#aeb6c8">АЛМАТЫ</text>
+    <!-- Sokol pin -->
+    <circle class="pulse" cx="612" cy="196" r="10"/>
+    <g class="pin">
+      <path d="M612 168 C 598 168 588 178 588 192 C 588 208 612 226 612 226 C 612 226 636 208 636 192 C 636 178 626 168 612 168 Z" fill="var(--primary)" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="612" cy="190" r="7" fill="#fff"/>
+    </g>
+    <text x="640" y="190" font-family="Orbitron" font-weight="700" font-size="15" fill="#fff">SOKOL</text>
+  </svg>
+  <div class="txt">
+    <div class="kic">Локация · Location</div>
+    <div class="big">Алматы<br>Казахстан</div>
+    <div class="small">В нескольких километрах от Алматы — юга Казахстана</div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b>≈ 20</b> мин от города</div>
+    <div class="chip">Горы · озёра · <b>лыжные базы</b></div>
+    <div class="chip">Туристический хаб</div>
+  </div>
+</div>
+</body>
+</html>

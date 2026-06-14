@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Motion-graphic component: speedometer gauge sweeping to V-max. Reusable in Sokol deck. -->
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Speedometer</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0a0a0f;--primary:#115ffc;--accent:#ff5733;--warm:#ff8c42;--ink:#f3f6ff;--muted:#8e97b6}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:var(--night);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;overflow:hidden}
+@media (prefers-reduced-motion:reduce){.needle{animation:none!important}}
+.gauge{position:relative;width:min(78vw,78vh);aspect-ratio:1}
+svg{width:100%;height:100%;overflow:visible;transform:rotate(0)}
+.track{fill:none;stroke:rgba(122,140,200,.16);stroke-width:7;stroke-linecap:round}
+.fill{fill:none;stroke:url(#g);stroke-width:7;stroke-linecap:round;filter:drop-shadow(0 0 8px rgba(17,95,252,.6));
+  stroke-dasharray:1;stroke-dashoffset:1;animation:fill 2.4s cubic-bezier(.2,.8,.2,1) infinite}
+@keyframes fill{0%{stroke-dashoffset:1}55%{stroke-dashoffset:.18}80%{stroke-dashoffset:.18}100%{stroke-dashoffset:1}}
+.tickm{stroke:rgba(180,190,220,.4);stroke-width:2}
+.needle{transform-box:fill-box;transform-origin:50% 92%;animation:sweep 2.4s cubic-bezier(.2,.8,.2,1) infinite}
+@keyframes sweep{0%{transform:rotate(-122deg)}55%{transform:rotate(26deg)}80%{transform:rotate(26deg)}100%{transform:rotate(-122deg)}}
+.read{position:absolute;left:0;right:0;top:54%;text-align:center}
+.read .v{font-family:'Orbitron';font-weight:900;font-size:clamp(1.8rem,7vw,4.4rem);color:var(--ink);font-variant-numeric:tabular-nums;line-height:1}
+.read .u{font-family:'JetBrains Mono',monospace;letter-spacing:.3em;color:var(--primary);font-size:clamp(.6rem,1.8vw,1rem);margin-top:.4em}
+.read .l{font-family:'Inter';font-weight:300;color:var(--muted);font-size:clamp(.55rem,1.5vw,.9rem);letter-spacing:.22em;text-transform:uppercase;margin-top:.5em}
+</style>
+</head>
+<body>
+<div class="gauge">
+  <svg viewBox="0 0 200 200">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#115ffc"/><stop offset="1" stop-color="#ff5733"/></linearGradient></defs>
+    <!-- arc from 218deg to 322deg (open at bottom) -->
+    <path class="track" d="M 41 159 A 80 80 0 1 1 159 159"/>
+    <path class="fill" d="M 41 159 A 80 80 0 1 1 159 159" pathLength="1"/>
+    <!-- ticks -->
+    <g class="tickm">
+      <line x1="100" y1="18" x2="100" y2="30"/>
+      <line x1="41" y1="159" x2="50" y2="151"/>
+      <line x1="159" y1="159" x2="150" y2="151"/>
+      <line x1="29" y1="78" x2="40" y2="83"/>
+      <line x1="171" y1="78" x2="160" y2="83"/>
+    </g>
+    <!-- needle -->
+    <polygon class="needle" points="97,100 100,30 103,100" fill="#ff5733" style="filter:drop-shadow(0 0 6px rgba(255,87,51,.8))"/>
+    <circle cx="100" cy="100" r="7" fill="#0a0a0f" stroke="#ff8c42" stroke-width="2.5"/>
+  </svg>
+  <div class="read">
+    <div class="v" id="v">0</div>
+    <div class="u">KM / H</div>
+    <div class="l">Макс. скорость · V-max</div>
+  </div>
+</div>
+<script>
+const v=document.getElementById('v'),dur=2400;let start=null;
+function loop(now){
+  if(!start)start=now;let t=((now-start)%dur)/dur;
+  let val;
+  if(t<.55){let p=t/.55;p=1-Math.pow(1-p,3);val=300*p;}
+  else if(t<.8){val=300;}
+  else{let p=(t-.8)/.2;val=300*(1-p);}
+  v.textContent=Math.round(val);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# ---- heavy build artifacts & generated output ----
+export/
+.frontend-slides/
+deploy/
+ads/shots/
+ads/qa/
+ads/obj/
+**/__pycache__/
+*.pyc
+
+# ---- large media (regenerable / heavy) ----
+*.mp4
+*.pptx
+assets/_aerial-gold-4k.png
+assets/_pdf_extract/
+assets/_pdf2/
+assets/_video_frames/
+assets/_*.png
+assets/_*.jpg
+
+# ---- intermediate / working files ----
+_cf.log
+*.log
+_figma_hashes.json
+
+# ---- local tooling / secrets ----
+.claude/settings.local.json
+.DS_Store
+Thumbs.db

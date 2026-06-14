@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Motion-graphic component: animated count-up stat. Reusable in Sokol deck. -->
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Counter</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0a0a0f;--primary:#115ffc;--accent:#ff5733;--warm:#ff8c42;--ink:#f3f6ff;--muted:#8e97b6}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:var(--night);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;overflow:hidden}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.wrap{text-align:center;position:relative}
+.wrap::before{content:"";position:absolute;inset:-40% -30%;background:radial-gradient(closest-side,rgba(17,95,252,.18),transparent);z-index:-1}
+.lbl{font-family:'JetBrains Mono',monospace;letter-spacing:.34em;text-transform:uppercase;color:var(--warm);font-size:clamp(.6rem,1.6vw,1rem);margin-bottom:clamp(10px,2vh,22px)}
+.num{font-family:'Orbitron';font-weight:900;line-height:.9;font-size:clamp(3.5rem,17vw,12rem);color:var(--ink);
+  background:linear-gradient(180deg,#fff,#9fc2ff);-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 10px 60px rgba(17,95,252,.3);font-variant-numeric:tabular-nums}
+.suf{font-family:'Orbitron';font-weight:700;font-size:.34em;color:var(--primary);-webkit-text-stroke:0;-webkit-text-fill-color:var(--primary);margin-left:.15em}
+.cap{font-family:'Inter';font-weight:300;color:var(--muted);font-size:clamp(.65rem,1.6vw,1.05rem);letter-spacing:.06em;margin-top:clamp(10px,2vh,22px)}
+.cap b{color:var(--ink);font-weight:500}
+.bar{height:3px;width:0;margin:clamp(14px,2.4vh,28px) auto 0;background:linear-gradient(90deg,var(--primary),var(--accent));max-width:60%}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lbl">Протяжённость трассы</div>
+  <div class="num"><span id="n">0</span><span class="suf">М</span></div>
+  <div class="bar" id="bar"></div>
+  <div class="cap">Шоссейно-кольцевая трасса · <b>Hermann Tilke</b></div>
+</div>
+<script>
+const el=document.getElementById('n'),bar=document.getElementById('bar');
+const target=4495,dur=2000;
+function run(){
+  const t0=performance.now();
+  bar.style.transition='none';bar.style.width='0';
+  requestAnimationFrame(()=>{bar.style.transition='width '+dur+'ms cubic-bezier(.2,.8,.2,1)';bar.style.width='60%';});
+  function tick(now){
+    let p=Math.min(1,(now-t0)/dur);
+    p=1-Math.pow(1-p,3); // easeOutCubic
+    el.textContent=Math.round(target*p).toLocaleString('ru-RU');
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+run();setInterval(run,4200);
+</script>
+</body>
+</html>
