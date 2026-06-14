@@ -211,7 +211,7 @@ h1 .fill{color:#fff;-webkit-text-stroke:0}
 .photo{border-radius:18px;background-size:cover;background-position:center;border:1px solid #2a3346;box-shadow:0 30px 70px rgba(0,0,0,.55)}
 
 /* === TITLE / FINAL === */
-.s-title .hero{position:absolute;left:120px;bottom:200px;z-index:10;max-width:1500px}
+.s-title .hero{position:absolute;left:120px;bottom:360px;z-index:10;max-width:1500px}
 .s-title .giant{text-shadow:none}
 .s-final .hud{display:none}
 .s-title .logo-top{position:absolute;top:110px;left:120px;z-index:10;height:110px;width:auto;max-width:none}
@@ -476,11 +476,8 @@ body.editing .deck-controls{display:none}
   <img class="logo-top rv d1" src="assets/logo.svg" alt="Sokol">
   <div class="hero">
     <h1 class="giant rv d3">SOKOL<br><span class="fill">INTERNATIONAL</span> CIRCUIT</h1>
-    <div class="en-sub rv d4">World-class motorsport in the heart of Eurasia</div>
+    <div class="en-sub rv d4" style="font-size:56px;color:#e6edff;letter-spacing:.03em;margin-top:14px">Republic of Kazakhstan</div>
   </div>
-  <div class="tick-line"><div class="in">
-    <span>MotoGP <i>//</i></span><span>FIM Superbike <i>//</i></span><span>WTCC <i>//</i></span><span>DTM <i>//</i></span><span>Formula E <i>//</i></span><span>Formula 2 · 3 <i>//</i></span><span>WEC <i>//</i></span><span>Drift series</span>
-  </div></div>
 </section>
 
 <!-- ============ A2 · OWNER ============ -->

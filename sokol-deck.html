@@ -208,15 +208,37 @@ h1 .fill{color:#fff;-webkit-text-stroke:0}
 .photo{border-radius:18px;background-size:cover;background-position:center;border:1px solid #2a3346;box-shadow:0 30px 70px rgba(0,0,0,.55)}
 
 /* === TITLE / FINAL === */
-.s-title .hero{position:absolute;left:120px;bottom:200px;z-index:10;max-width:1500px}
+.s-title .hero{position:absolute;left:120px;bottom:300px;z-index:10;max-width:1500px}
 .s-title .giant{text-shadow:none}
-.s-final .hud{display:none}
+.s-final .hud,.s-title .hud{display:none}
 .s-title .logo-top{position:absolute;top:110px;left:120px;z-index:10;height:110px;width:auto;max-width:none}
 .tick-line{position:absolute;left:0;right:0;bottom:64px;z-index:12;overflow:hidden;border-top:1px solid #232c40;border-bottom:1px solid #232c40;
  background:rgba(8,10,16,.82);height:58px;display:flex;align-items:center}
 .tick-line .in{display:flex;gap:64px;white-space:nowrap;font-family:var(--mono);font-size:17px;letter-spacing:.3em;color:#9fb4dd;
  text-transform:uppercase;width:100%;justify-content:center}
 .tick-line .in i{color:var(--accent);font-style:normal}
+/* === A3 PURPOSE: larger type + cards for legibility === */
+.s-purpose .big{font-size:100px}
+.s-purpose .en-sub{font-size:32px;color:#9fb4dd;letter-spacing:.18em;text-transform:uppercase}
+.s-purpose .chip,.s-loc .chip{padding:30px 36px;font-size:25px}
+.s-purpose .chip b,.s-loc .chip b{font-family:var(--mono);font-weight:600;font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:#7e9bd1;margin-bottom:14px}
+.s-purpose .chip i,.s-loc .chip i{font-size:23px;line-height:1.5;margin-top:14px;color:#dfe5f2}
+/* A3 LOCATION: cards larger still */
+.s-loc .chips{gap:24px;margin-top:34px}
+.s-loc .chip{padding:24px 46px;font-size:30px}
+.s-loc .chip b{font-size:22px;letter-spacing:.18em;margin-bottom:10px}
+.s-loc .chip i{font-size:30px;line-height:1.5;margin-top:0}
+.s-loc .loch1{position:absolute;left:120px;top:138px;z-index:10;font-size:56px;line-height:1.04;white-space:nowrap;color:#fff;text-shadow:0 3px 22px rgba(5,8,16,.92)}
+.s-loc .chips{flex-direction:column;align-items:flex-start}
+.s-loc .chip{width:auto;max-width:780px}
+.s-loc .racetown{margin-top:18px}
+/* === A4 MANIFEST: matching card style + big card numbers === */
+.s-manifest .chips{gap:22px;margin-top:54px}
+.s-manifest .chip{display:flex;align-items:center;gap:30px;padding:40px 44px;font-size:27px;min-width:300px}
+.s-manifest .chip .ct{display:flex;flex-direction:column;gap:14px}
+.s-manifest .chip b{font-family:var(--mono);font-weight:600;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:#7e9bd1;margin-bottom:0}
+.s-manifest .chip i{font-size:26px;line-height:1.5;margin-top:0;color:#dfe5f2}
+.s-manifest .chip .cnum{flex:none;font-family:'Orbitron','Russo One',sans-serif;font-weight:900;font-size:86px;line-height:1;color:#fff}
 /* === PHOTO CARDS (consolidated infrastructure) === */
 .pgrid{display:flex;gap:26px;margin-top:54px}
 .pcard{flex:1;border:1px solid #2a3650;border-radius:16px;background:rgba(13,18,30,.72);overflow:hidden}
@@ -254,6 +276,22 @@ h1 .fill{color:#fff;-webkit-text-stroke:0}
 .notrans .bird-cut{opacity:1;transform:none;animation:none}
 .bird-photo{position:absolute;left:430px;top:120px;bottom:120px;width:560px;z-index:3;background-size:cover;background-position:center;
  border-radius:8px;box-shadow:0 40px 100px rgba(0,0,0,.7)}
+/* multi-photo gallery on a leisure slide (all photos of one venue) */
+.bird-gallery{position:absolute;left:430px;top:120px;bottom:120px;width:560px;z-index:3;display:grid;gap:14px}
+.bird-gallery .gt{background-size:cover;background-position:center;border-radius:10px;box-shadow:0 22px 50px rgba(0,0,0,.6)}
+.bird-gallery.g2{grid-template-rows:1fr 1fr}
+.bird-gallery.g3{grid-template-columns:1fr 1fr;grid-template-rows:1.35fr 1fr}
+.bird-gallery.g3 .gt:first-child{grid-column:1 / -1}
+/* leisure layout: photos fully visible on the left, text on the right */
+.s-bird .bird-word{display:none}
+.s-bird .bird-gallery{left:90px;right:auto;width:800px;top:130px;bottom:90px;gap:14px}
+.s-bird .bird-gallery .gt{background-size:cover;background-position:center}
+.s-bird .bird-gallery.g3{grid-template-columns:1fr 1fr;grid-template-rows:1.3fr 1fr}
+.s-bird .bird-gallery.g3 .gt:first-child{grid-column:1 / -1}
+.s-bird .bird-gallery.g2{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+.s-bird .bird-info{left:auto;right:90px;top:50%;bottom:auto;transform:translateY(-50%);width:800px}
+.s-bird .bird-info .big{white-space:nowrap}
+.s-bird .bird-info .birdfacts{position:static;flex-direction:column;gap:16px}
 .bird-info{position:absolute;right:90px;top:50%;transform:translateY(-50%);width:560px;z-index:4}
 .bird-info .kic{color:var(--accentc,#74a9ff)}
 .bird-info .big{font-size:80px;color:#fff;-webkit-text-stroke:0;margin:12px 0 0}
@@ -300,6 +338,10 @@ h1 .fill{color:#fff;-webkit-text-stroke:0}
 .mini .mname{font-family:'Russo One',sans-serif;font-size:24px;letter-spacing:.02em;color:#eef2fb;text-align:center}
 .mini .tlkb{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:#0a0a0f;background:var(--warm);border-radius:5px;padding:5px 13px;font-weight:600}
 .mini .tlkb.gray{background:#26314a;color:#9aa6c2;font-weight:400}
+.s-tilke .minis{flex-wrap:nowrap;justify-content:flex-start;align-items:center;gap:64px;width:auto}
+.s-tilke .msupport{display:grid;grid-template-columns:repeat(3,auto);gap:32px 46px}
+.s-tilke .mmain{width:380px}
+.s-tilke .mmain .mname{font-size:32px}
 
 /* === LOCATION: satellite zoom -> drone video === */
 .zoomfx{position:absolute;inset:0;overflow:hidden;background:#05080c;z-index:1}
@@ -473,11 +515,8 @@ body.editing .deck-controls{display:none}
   <img class="logo-top rv d1" src="assets/logo.svg" alt="Sokol">
   <div class="hero">
     <h1 class="giant rv d3">SOKOL<br><span class="fill">INTERNATIONAL</span> CIRCUIT</h1>
-    <div class="en-sub rv d4">World-class motorsport in the heart of Eurasia</div>
+    <div class="kic rv d4" style="font-size:24px;letter-spacing:.38em;margin-top:30px">The Republic of Kazakhstan, Almaty</div>
   </div>
-  <div class="tick-line"><div class="in">
-    <span>MotoGP <i>//</i></span><span>FIM Superbike <i>//</i></span><span>WTCC <i>//</i></span><span>DTM <i>//</i></span><span>Formula E <i>//</i></span><span>Formula 2 · 3 <i>//</i></span><span>WEC <i>//</i></span><span>Drift series</span>
-  </div></div>
 </section>
 
 <!-- ============ A2 · OWNER ============ -->
@@ -510,13 +549,13 @@ body.editing .deck-controls{display:none}
   <div class="bgimg" style="background-image:url('assets/aerial-gold.jpg')"></div>
   <div class="dim"></div><div class="grid-tel"></div><div class="ticks"></div>
   <div class="wrap">
-    <div class="kic rv d1">WHY SOKOL WAS BUILT · THE PURPOSE</div>
-    <h1 class="big rv d2" style="max-width:1500px">A <span style="color:#5e9bff">world-class arena</span><br>for Kazakhstan</h1>
-    <div class="en-sub rv d3">The story behind the project</div>
-    <div class="chips" style="margin-top:44px;max-width:1560px">
-      <div class="chip rv d4" style="max-width:470px"><b>A dream of big motorsport</b><i>the Main Circuit commissioned from Hermann Tilke back in 2013 — to bring world racing series to Kazakhstan</i></div>
-      <div class="chip rv d5" style="max-width:470px"><b>Sport instead of streets</b><i>a safe alternative to street racing and a driver school from childhood</i></div>
-      <div class="chip rv d6" style="max-width:470px"><b>A legacy for the country</b><i>infrastructure, jobs and a destination for the south of Kazakhstan</i></div>
+    <div class="kic rv d1">WHY SOKOL WAS BUILT</div>
+    <h1 class="big rv d2" style="max-width:1560px">Opening a <span style="color:#5e9bff">world arena</span><br>for Kazakhstan</h1>
+    <div class="en-sub rv d3" style="margin-top:64px">The story behind the project</div>
+    <div class="chips" style="margin-top:20px;max-width:1620px">
+      <div class="chip rv d4" style="max-width:500px"><b>A dream of big motorsport</b><i>the Main Circuit commissioned from Hermann Tilke back in 2013 — to bring world racing series to Kazakhstan</i></div>
+      <div class="chip rv d5" style="max-width:500px"><b>Sport instead of streets</b><i>a safe alternative to street racing and a driver school from childhood</i></div>
+      <div class="chip rv d6" style="max-width:500px"><b>A legacy for the country</b><i>infrastructure, jobs and a destination for the south of Kazakhstan</i></div>
     </div>
   </div>
 </section>
@@ -526,15 +565,15 @@ body.editing .deck-controls{display:none}
   <div class="bgimg" style="background-image:url('assets/aerial-lake.jpg')"></div>
   <div class="dim"></div><div class="grid-tel"></div><div class="ticks"></div>
   <div class="wrap">
-    <div class="kic rv d1">FIA GRADE 2 · BUILT TO STANDARD</div>
-    <h1 class="big rv d2" style="max-width:1560px">Kazakhstan's only <span style="color:#5e9bff">FIA Grade 2</span> circuit</h1>
+    <div class="kic rv d1">FIA GRADE 2&nbsp;&nbsp;&nbsp;BUILT TO STANDARD</div>
+    <h1 class="big rv d2" style="max-width:1560px">Kazakhstan's only<br><span style="color:#5e9bff">FIA Grade 2</span> circuit</h1>
     <div class="en-sub rv d3">Every facility the FIA circuit standard requires — already on site</div>
     <div class="chips">
-      <div class="chip rv d4"><b>Pit buildings</b><i>team garages with direct pit-lane access</i></div>
-      <div class="chip rv d4"><b>Own medical centre</b><i>permanent, on-site — per FIA Appendix O</i></div>
-      <div class="chip rv d5"><b>Race control</b><i>full-circuit camera monitoring</i></div>
-      <div class="chip rv d5"><b>Safety systems</b><i>barriers, run-off zones, marshal posts</i></div>
-      <div class="chip rv d6"><b>Timing & telemetry</b><i>professional timekeeping infrastructure</i></div>
+      <div class="chip rv d4"><div class="ct"><b>Pit buildings</b><i>team garages with direct pit-lane access</i></div></div>
+      <div class="chip rv d4"><div class="ct"><b>Own medical centre</b><i>permanent, on-site — per FIA Appendix O</i></div></div>
+      <div class="chip rv d5"><div class="ct"><b>Race control</b><i>full-circuit camera monitoring</i></div></div>
+      <div class="chip rv d5"><div class="ct"><b>Safety systems</b><i>barriers, run-off zones, marshal posts</i></div></div>
+      <div class="chip rv d6"><div class="ct"><b>Timing & telemetry</b><i>professional timekeeping infrastructure</i></div></div>
     </div>
   </div>
 </section>
@@ -556,14 +595,14 @@ body.editing .deck-controls{display:none}
   </div>
   <div class="locgrad"></div>
   <div class="ticks"></div>
-  <div class="lockic kic">LOCATION</div>
+  <h1 class="big loch1">Almaty–Astana highway</h1>
   <div class="locinfo">
-    <h1 class="big" style="font-size:58px">Next door to Almaty</h1>
-    <div class="en-sub">Trans-Kazakhstan highway · Almaty region</div>
     <div class="chips" style="margin-top:26px">
-      <div class="chip"><b>A racing town</b><i>a self-contained town with its own infrastructure</i></div>
       <div class="chip"><b>76 km</b><i>from Almaty</i></div>
       <div class="chip"><b>205 ha</b><i>of own grounds</i></div>
+    </div>
+    <div class="chips racetown">
+      <div class="chip"><b>A racing town</b><i>a self-contained town<br>with its own infrastructure</i></div>
     </div>
   </div>
   <div class="zattr">Imagery © Esri · Maxar</div>
@@ -573,16 +612,17 @@ body.editing .deck-controls{display:none}
 <section class="slide s-tilke" data-block="1">
   <div class="grid-tel"></div><div class="scan"></div><div class="ticks"></div>
   <!-- Tilke photo + credentials, right side -->
-  <div style="position:absolute;right:120px;top:150px;width:380px;z-index:10" class="rv d3">
-    <div class="photo" style="width:380px;height:430px;background-image:url('assets/tilke.jpg');background-position:top center"></div>
-    <div style="font-family:'Russo One',sans-serif;font-size:24px;color:#fff;margin-top:18px">Hermann Tilke</div>
-    <div style="font-family:var(--mono);font-size:14px;color:#9fb4dd;letter-spacing:.1em;margin-top:6px;line-height:1.5">ARCHITECT OF F1 CIRCUITS:<br>Bahrain · Abu Dhabi · Shanghai · Austin</div>
+  <div style="position:absolute;right:120px;top:150px;width:420px;z-index:10" class="rv d3">
+    <div class="photo" style="width:420px;height:486px;background-image:url('assets/tilke.jpg');background-position:top center"></div>
+    <div style="font-family:'Russo One',sans-serif;font-size:30px;color:#fff;margin-top:22px">Hermann Tilke</div>
+    <div style="font-family:var(--mono);font-size:15px;color:#2aa8ff;letter-spacing:.12em;margin-top:12px">ARCHITECT OF F1 CIRCUITS:</div>
+    <div style="font-size:19px;color:#dfe5f2;line-height:1.7;margin-top:10px">Bahrain <span style="color:#2aa8ff;font-family:var(--mono)">(BAH)</span> · Abu Dhabi <span style="color:#2aa8ff;font-family:var(--mono)">(AUH)</span> · Shanghai <span style="color:#2aa8ff;font-family:var(--mono)">(PVG)</span> · Austin <span style="color:#2aa8ff;font-family:var(--mono)">(AUS)</span></div>
   </div>
   <div class="wrap" style="width:1080px">
     <div class="kic rv d1">THE CIRCUITS</div>
     <h1 class="big rv d2" style="font-size:74px">Six circuits —<br>one venue</h1>
     <div class="en-sub rv d3" style="max-width:980px;font-size:25px;line-height:1.5">The flagship <b style="color:var(--warm)">Main Circuit</b> is designed by <b style="color:#fff">Hermann Tilke</b>, the architect of modern Formula 1 tracks. The five supporting circuits were engineered by the Sokol team.</div>
-    <div class="minis rv d5" style="margin-top:70px"><div class="mini rv d2"><svg viewBox="1455 2181 26788 16651" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M16277.25 3625.44c-234.25,31.32 -461.22,142.07 -604.63,308.04 -103.89,120.22 -180.36,269.42 -263.25,414.62l-242.15 436.4c-53.3,97.57 -104.63,191.31 -161.81,286.06 -114.15,189.17 -209.87,395.72 -325.27,582.71 -113.6,184.08 -212.19,388.22 -320.77,576.3 -111.57,193.22 -220.02,386.69 -325.6,582.21 -106.14,196.55 -220.92,379.05 -323.21,573.35 -100.36,190.61 -214.59,392.71 -325.28,582.1 -110.18,188.5 -206.84,391.26 -320.3,576.85 -132.94,217.45 -194.59,431.03 -84.1,703.04 193.5,476.38 899.14,508.14 1338.14,431.4 254.56,-44.49 471.14,-123.61 668.48,-236.55l269.47 -181.22c106.26,-76.59 210.4,-179.52 289.89,-280.83l298.36 -370.25c49.44,-62.55 96.07,-127.78 157.21,-182.82l116.39 -114.7c31.08,-31.88 17.39,-25.86 56.52,-53.03 26.1,-18.13 42.81,-32.84 68.85,-52.49 527.68,-398.3 1355.45,-426.17 1916.82,-32 65.12,45.72 135.11,84.25 188.34,142.47 23.91,26.14 33.71,37.72 58.68,62.01 23.67,23.02 32.11,27.42 58.87,50.99 110.45,97.26 256.44,360.76 308.3,491.92 115.28,291.52 91.74,458.64 129.76,760.76 31.53,250.6 109.91,488.16 213.15,692.65 53.79,106.55 107.91,187.41 168.72,279.31 58.83,88.92 135.4,166.45 203.93,245.6 121.03,139.79 360.1,310.6 519.09,393.28 680.26,353.75 1752.45,440.99 2167.24,782.17 556.51,457.74 496.27,1283.17 79.59,1751.57 -107.06,120.35 -335.96,271.06 -579.1,325.27 -250.52,55.84 -612.84,33.9 -882.23,33.9l-12845.54 6.06c-151.9,0 -304.47,1.43 -456.26,0.21 -280.1,-2.24 -404.91,-231.15 -231.77,-508.62 108.94,-174.57 224.83,-397.23 324.52,-582.88 53.42,-99.47 106.32,-187.76 160.08,-288.65 165.42,-310.48 364.08,-718.31 615.77,-961.3 338.12,-326.4 661.18,-306.43 851.92,-740.59 96.88,-220.53 82.28,-510.65 -32.28,-721.9 -28.04,-51.7 -56.08,-94.51 -85.37,-143.82l-1079.14 -1852.39c-134.65,-228.58 -200.49,-367.12 -426.47,-483.66 -226.05,-116.59 -496.33,-111.25 -723.9,3.94 -229.09,115.96 -287.34,259.39 -424.09,485.82 -455.85,754.83 -875.63,1531.22 -1332.13,2288.3 -113.27,187.86 -220.99,377.32 -329.64,567.67l-664.84 1140.27c-55.12,93.07 -107.64,195.02 -163.53,285.08 -59.35,95.61 -114.17,188.45 -169.55,289.88 -150.74,276.01 -540.92,891.78 -660.3,1144.06 -212.25,448.5 -301.47,974.69 -172.28,1502.7 110.77,452.71 334.91,824.72 660.41,1144.12 151.6,148.75 335.95,273.52 526.88,375.21 525.44,279.85 975.4,261.44 1565.39,261.44 6724.86,0 13449.75,-16.01 20174.73,-7.79 306.17,0.38 524.96,-84.2 678.11,-240.45 310.56,-316.83 358.63,-850.29 7.87,-1177.26l-176.53 -163.59c-21.7,-18.8 -42.06,-29.06 -62.28,-48.26l-481.81 -419.39c-298.79,-219.91 -181.84,-410.54 -1.97,-675.86 204.19,-301.21 340.7,-633.08 328.46,-1026.31 -12.56,-403.66 -162.13,-751.81 -414.42,-1039.86l-175.58 -175.73c-75.87,-79.98 -145.41,-150.57 -219.2,-231.09 -23.06,-25.16 -31.61,-27.52 -59.67,-50.23 -122.57,-99.27 -209.85,-237.77 -329.41,-340.11 -144.82,-123.96 -255.5,-276.02 -404.62,-396.78 -39.03,-31.6 -79.54,-76.72 -114.51,-115.59 -58.36,-64.88 -156.7,-177.58 -221,-229.44 -126.65,-102.15 -231.49,-224.45 -338.85,-341.62 -23.06,-25.16 -31.61,-27.51 -59.67,-50.23 -102.88,-83.32 -193.59,-192.71 -281.71,-288.91l-452.33 -447.97c-115.5,-93.55 -221.96,-253.46 -335.51,-345.04 -163.91,-132.2 -315.42,-343.75 -448.92,-451.04 -126.08,-101.33 -227.06,-235.8 -343.84,-347.51 -23.94,-22.9 -35.43,-27.31 -61.4,-48.67 -68.35,-56.21 -202.55,-214.82 -272.73,-286.97l-121.44 -108.84c-106.99,-120.85 -213.91,-237.46 -339.86,-341.07 -117.61,-96.74 -215.22,-253.85 -335.03,-345.52 -58.99,-45.13 -66.85,-60.93 -111.59,-107.81 -91.12,-95.48 -175.84,-197.52 -281.23,-278.82 -61.38,-47.36 -218.38,-230.18 -284.32,-297.22 -37.29,-37.91 -82.81,-65.81 -116.03,-103.33 -106.31,-120.09 -215.16,-238.49 -339.86,-341.07 -63.1,-51.9 -162.05,-166.53 -219.23,-230.87 -23.69,-26.66 -30.1,-27.14 -59.14,-50.65 -72.95,-59.05 -214.06,-215.02 -281.73,-288.9 -42.9,-46.84 -75.97,-68.29 -119.42,-111.1 -113.91,-112.19 -207.34,-235.19 -332.9,-336.87 -82.64,-66.93 -152.73,-158.01 -227.86,-232.95 -38.08,-37.98 -74.53,-86.38 -113.94,-116.83 -149.78,-115.76 -247.44,-269.85 -392.23,-387.11 -102.89,-83.32 -193.59,-192.71 -281.71,-288.91l-458.3 -452.91c-85.1,-72.21 -137.72,-152.99 -236.37,-224.89 -179.17,-130.6 -422.79,-218.68 -707,-180.67z" fill="none" stroke="#2aa8ff" stroke-width="924.0000000000001" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mname">Main Circuit</span><span class="tlkb">TILKE</span></div><div class="mini rv d3"><svg viewBox="4433 69 20833 20877" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M7064.13 3704.6l412.84 -408.37 16147.64 16151.96c-68.94,105.85 -234.9,231.23 -395.48,231.23 -179.15,0 -251.71,-57.22 -360.91,-166.4l-15676.57 -15676.59c-36.66,-36.65 -101.87,-93.53 -127.52,-131.83zm-1365.8 -1538.7c0,-156.01 114.54,-326.7 233.4,-406.28l1437.12 1432.81 -414.95 419.22c-50.45,-73.6 -983.19,-963.85 -1134.63,-1143.12 -41.05,-48.6 -73.92,-93.41 -94.13,-156.56 -10.41,-32.52 -26.81,-106.62 -26.81,-146.07zm-43.22 -674.26c52.09,13.92 106.53,111.17 172.88,155.6 -58.99,88.09 -276.61,217.37 -276.61,518.66 0,302.84 223.42,461.15 430.05,667.78l16549.66 16549.67c114.62,114.62 310.09,337.44 439.83,390.03 189.04,76.6 377.44,78.29 555.74,-38.48 97.03,-63.55 151.88,-141.71 203.84,-176.5l119.1 114.32 297.96 -293.73 -18196.38 -18192.06 -224.75 220.43c-25.84,25.82 -61.35,46.9 -71.32,84.28z" fill="#ff8c42" fill-rule="evenodd"/></svg><span class="mname">Drag Strip</span><span class="tlkb gray">SOKOL TEAM</span></div><div class="mini rv d4"><svg viewBox="7435 3205 14878 14542" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M15903.77 16136.2c2986.44,2023.38 5948.41,22.12 5394.01,-3236.4 -249.76,-1467.92 -2097.78,-1823.35 -2573.73,-1718.52 -2698.07,594.25 -6710.9,702.34 -5657.13,-3315.89 479.77,-1829.46 -651.51,-3156.79 -651.51,-3156.79 -1434.31,-1588.63 -8074.13,462.43 -929.6,7260.87 1863.92,1773.63 3760.25,3478.78 4417.96,4166.73z" fill="none" stroke="#8b7bff" stroke-width="792.0000000000001" stroke-linecap="round" stroke-linejoin="round"/><path d="M11676.38 4309.16c0,0 602.58,-650.86 2429.38,-58.78 1826.81,592.08 2197.56,2617.91 2197.56,2617.91 0,0 375.05,1737.48 1198.67,3185.11 823.62,1447.62 2357.39,1178.06 2956.72,741.74 599.33,-436.32 1324.58,-1187.83 958.94,-2487.01 -365.65,-1299.18 -1691.99,-1534.67 -2204.17,-1496.17 -512.18,38.5 -1629,597.09 -2229.62,2224.68" fill="none" stroke="#8b7bff" stroke-width="792.0000000000001" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mname">Drift Arena</span><span class="tlkb gray">SOKOL TEAM</span></div><div class="mini rv d5"><svg viewBox="5395 1399 18909 17854" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M9959.13 2700.15c-456.51,0 -826.59,370.08 -826.59,826.56l0 1184.78c0,903.44 -1092.11,1355.95 -1731.06,717.31 -260.2,-260.15 -704.98,-75.83 -704.98,292.07l0 2307.13c0,318.88 126.78,624.81 352.33,850.3l2819.82 2818.6c378.8,378.57 1026.07,110.3 1026.07,-425.16l0 -4246.98c0,-298.69 -118.74,-585.14 -329.87,-796.29 -638.86,-638.56 -186.59,-1730.75 716.86,-1730.75l1550.94 0 -81.91 -82.08c-411.03,-410.86 -411.03,-1077.22 0,-1488.12l227.69 -227.37 -3019.3 0zm0 -601.15c-788.48,0 -1427.71,639.23 -1427.71,1427.71l0 1184.78c0,367.9 -444.78,552.22 -704.98,292.16 -638.96,-638.73 -1731.09,-186.14 -1731.09,717.22l0 2307.13c0,478.43 190.11,937.24 528.5,1275.46l2819.87 2818.59c757.44,757.15 2052.15,220.7 2052.15,-850.31l0 -4246.98c0,-458.22 -181.84,-897.57 -505.72,-1221.45 -260.01,-259.92 -75.89,-704.47 291.56,-704.47l2152.83 0 1015.94 1016.03c176.56,176.05 176.56,461.59 0,637.73l-1209.06 1208.88c-338.88,338.28 -528.99,797.12 -528.99,1275.55l0 1725.35c0,578.23 229.93,1131.72 638.7,1540.35l2140.05 2139.14c284.06,283.98 284.06,744.52 0,1028.58l-220.16 220.38c-558.3,557.64 -558.3,1461.97 0,2019.52l223.17 223.57c557.55,557.24 1461.54,557.24 2019.09,0l151.77 -151.57c322.38,-322.6 845.37,-322.6 1168.48,0l514.73 514.95c557.55,557.25 1461.54,557.25 2019.09,0l1597.52 -1597c15.03,-14.66 29.31,-29.46 43.6,-44.42 11.27,-10.88 23.28,-22.01 34.56,-33.43l-2.27 -1.96c361.45,-399.59 562.84,-920.11 562.84,-1461.45l0 -9365.84c0,-1070.92 -1294.72,-1607.46 -2052.16,-850.31l-1481.81 1481.05c-520.75,520.58 -1411.19,151.72 -1411.19,-584.53l0 -2512.7c0,-788.48 -638.69,-1427.71 -1427.68,-1427.71l-7271.63 0zm12626.28 14328.66c267.51,-290.65 417.04,-671.93 417.04,-1068.62l0 -9365.84c0,-535.46 -647.73,-803.73 -1026.45,-425.15l-1481.05 1481.05c-899.47,899.15 -2437.63,262.1 -2437.63,-1009.69l0 -2512.7c0,-456.48 -369.72,-826.56 -826.56,-826.56l-2904.28 0c-318.59,0 -624.44,126.61 -849.85,351.97l-300.59 300.64c-176.57,176.06 -176.57,461.59 0,637.73l507.23 507.23 1184.24 0c788.99,0 1427.71,639.15 1427.71,1427.69l0 1110.99c0,418.62 166.82,820.12 462.87,1116.02l753.69 753.38c295.3,295.76 696.57,461.9 1115.11,461.9l1185.74 0c788.25,0 1427.72,639.23 1427.72,1427.71l0 144.42c0,788.48 -639.47,1427.71 -1427.72,1427.71l-2258.02 0c-802.51,0 -1540.44,-439.66 -1917.65,-1149.08 -368.95,-693.87 -785.24,-1480.76 -1184.24,-2237.29 -293.8,-557.1 -1139.17,-346.63 -1139.17,280.8l0 1700.41c0,418.48 166.83,819.12 462.9,1115.2l1635.83 1634.86c314.11,314.48 746.93,481.53 1191.03,460.12l911.48 -43.83 937.78 0c577.83,0 1132.38,229.42 1541.17,637.9l1631.35 1630.67c263.75,263.58 684.53,273.75 960.32,30.36zm-6340.54 -1670.57c143.53,457.08 33.82,976.38 -328.37,1338.51l-220.92 220.47c-322.35,322.8 -322.35,846.33 0,1169.13l223.93 223.57c323.11,322.57 846.11,322.57 1168.45,0l151.8 -151.57c557.56,-557.28 1460.77,-557.28 2018.33,0l515.49 514.95c323.11,322.66 846.1,322.66 1168.45,0l898.7 -898.42c-234.45,-51.46 -458.35,-168.61 -640.97,-351.28l-1631.34 -1630.66c-296.05,-295.76 -697.32,-461.91 -1115.85,-461.91l-923.5 0 -896.45 43.12c-130.76,6.33 -260.75,0.85 -387.75,-15.91zm-2250.53 -6698.76c387.01,19.54 767.97,221.24 989.64,642.42 398.99,756.15 815.29,1542.36 1183.5,2235.33 272.75,511.86 805.52,830.31 1387.13,830.31l2258.02 0c456.14,0 826.59,-370.05 826.59,-826.56l0 -144.42c0,-456.5 -370.45,-826.56 -826.59,-826.56l-1185.74 0c-577.83,0 -1131.64,-229.5 -1540.41,-637.9l-753.69 -753.38c-408.79,-408.71 -638.72,-963.11 -638.72,-1541.17l0 -1110.99c0,-456.57 -369.69,-826.57 -826.56,-826.57l-583.12 0 591.38 590.84c411.04,410.82 411.04,1077.17 0,1488.07l-881.43 880.58z" fill="#34d058" fill-rule="evenodd"/></svg><span class="mname">Karting Track</span><span class="tlkb gray">SOKOL TEAM</span></div><div class="mini rv d6"><svg viewBox="2859 1751 23982 17512" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M23130.25 17436.92c824.79,441.21 1239,985.41 1664.65,-1246.72 329.44,-1727.62 907.38,-5045.31 726.5,-5398.64 -221.89,-433.47 -427.35,140.73 -1969.77,1426.24 -3032.63,2527.52 -3224.06,2996.24 -3135.28,1234.9 88.77,-1761.34 609.98,-2417.94 -1188.61,-1590.92 -1798.6,827.03 -1980.56,384.34 -1980.56,384.34l-3924.29 -2944.56c-372.95,-279.83 -1397.36,935.1 -1578.57,866.77 -181.21,-68.33 427.63,-1450.75 427.63,-1450.75 0,0 -279.31,-1247.03 -976.27,-1782.82 -696.96,-535.79 -4606.4,-3725.88 -4606.4,-3725.88 0,0 -496.06,-751.21 -1488.51,877.23 -992.46,1628.43 -962.57,1882.63 -955.84,2014.98 6.72,132.36 -66.41,775.43 730.44,228.65 796.85,-546.78 1272.85,-1310.79 1410.31,-802.37 137.46,508.42 450.01,2668.98 450.01,2668.98l2289.05 1741.54 926.23 -107.74c0,0 581.67,-35.31 165.77,527.59 -415.9,562.9 -919.49,1182.32 -982.15,1346.6 -62.66,164.27 -422.64,1021.19 621.96,709.92 1044.6,-311.27 2268.11,163.81 2317.54,195.28l2365.93 1506.04 2210.96 922.42 556.61 1718.2 2963.23 1111.7c0,0 582.37,522.1 1178.41,-703.79 596.04,-1225.89 1092.19,-1369.21 1202.72,-1166.57 110.53,202.63 578.3,1439.38 578.3,1439.38z" fill="none" stroke="#ed2d91" stroke-width="924.0000000000001" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mname">Motocross</span><span class="tlkb gray">SOKOL TEAM</span></div><div class="mini rv d7"><svg viewBox="1455 2552 26788 15910" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M17474.61 4653.51l-2182.01 1144.02c0,0 -498.78,152.41 -872.87,969.86 -374.08,817.44 -637.33,1828.86 -637.33,1828.86 0,0 -263.24,623.47 -1371.64,235.53 -1108.4,-387.94 -1427.07,-692.75 -1427.07,-692.75 0,0 -512.64,-443.36 -1011.42,-637.33 -498.78,-193.97 -803.59,-207.82 -1468.63,69.28 -665.04,277.1 -623.47,249.39 -1136.11,720.46 -512.64,471.07 -387.94,429.5 -900.58,498.78 -512.63,69.27 -1593.32,568.05 -1593.32,568.05l-1662.61 775.88c0,0 -748.17,872.87 41.57,1233.1 789.74,360.23 1163.82,-263.24 1163.82,-263.24 0,0 540.35,-180.12 983.71,96.98 443.36,277.1 290.95,138.55 637.33,526.49 346.37,387.94 1080.69,332.52 1080.69,332.52 0,0 631.82,-55.71 859.01,83.13 227.19,138.84 277.1,110.84 387.94,803.59 110.84,692.75 -19.25,1549.51 -166.26,2147.53 -147.01,598.03 -411.39,700.21 0,1288.52 411.39,588.3 360.23,734.32 928.29,595.77 568.05,-138.56 1898.13,-859.02 1898.13,-859.02l3449.9 -1233.09c0,0 1122.26,-332.52 1773.45,110.84 651.18,443.36 1274.66,817.44 1274.66,817.44 0,0 748.17,526.49 1690.31,457.22 942.14,-69.28 1052.98,-249.39 2258.37,-360.23 1205.39,-110.84 2286.08,290.95 2286.08,290.95 0,0 928.28,332.52 1524.05,-221.68 595.77,-554.2 330.18,-301.12 583.27,-841.29 253.08,-540.18 891.08,-2948.51 891.08,-2948.51 0,0 315.97,-473.95 -609.36,-1263.86 -925.33,-789.91 -3362.77,-3385.34 -3362.77,-3385.34 0,0 -315.97,-180.55 -45.14,-1466.98 270.83,-1286.43 -564.22,-1692.67 -564.22,-1692.67 0,0 -857.62,-473.94 -2121.48,-383.67 -1263.86,90.28 -2578.84,654.86 -2578.84,654.86z" fill="none" stroke="#98ca48" stroke-width="1034.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mname">Off-road</span><span class="tlkb gray">SOKOL TEAM</span></div></div>
+    <div class="minis rv d5" style="margin-top:70px"><div class="mini mmain rv d2"><svg viewBox="1455 2181 26788 16651" preserveAspectRatio="xMidYMid meet" style="width:360px;height:258px;overflow:visible"><path d="M16277.25 3625.44c-234.25,31.32 -461.22,142.07 -604.63,308.04 -103.89,120.22 -180.36,269.42 -263.25,414.62l-242.15 436.4c-53.3,97.57 -104.63,191.31 -161.81,286.06 -114.15,189.17 -209.87,395.72 -325.27,582.71 -113.6,184.08 -212.19,388.22 -320.77,576.3 -111.57,193.22 -220.02,386.69 -325.6,582.21 -106.14,196.55 -220.92,379.05 -323.21,573.35 -100.36,190.61 -214.59,392.71 -325.28,582.1 -110.18,188.5 -206.84,391.26 -320.3,576.85 -132.94,217.45 -194.59,431.03 -84.1,703.04 193.5,476.38 899.14,508.14 1338.14,431.4 254.56,-44.49 471.14,-123.61 668.48,-236.55l269.47 -181.22c106.26,-76.59 210.4,-179.52 289.89,-280.83l298.36 -370.25c49.44,-62.55 96.07,-127.78 157.21,-182.82l116.39 -114.7c31.08,-31.88 17.39,-25.86 56.52,-53.03 26.1,-18.13 42.81,-32.84 68.85,-52.49 527.68,-398.3 1355.45,-426.17 1916.82,-32 65.12,45.72 135.11,84.25 188.34,142.47 23.91,26.14 33.71,37.72 58.68,62.01 23.67,23.02 32.11,27.42 58.87,50.99 110.45,97.26 256.44,360.76 308.3,491.92 115.28,291.52 91.74,458.64 129.76,760.76 31.53,250.6 109.91,488.16 213.15,692.65 53.79,106.55 107.91,187.41 168.72,279.31 58.83,88.92 135.4,166.45 203.93,245.6 121.03,139.79 360.1,310.6 519.09,393.28 680.26,353.75 1752.45,440.99 2167.24,782.17 556.51,457.74 496.27,1283.17 79.59,1751.57 -107.06,120.35 -335.96,271.06 -579.1,325.27 -250.52,55.84 -612.84,33.9 -882.23,33.9l-12845.54 6.06c-151.9,0 -304.47,1.43 -456.26,0.21 -280.1,-2.24 -404.91,-231.15 -231.77,-508.62 108.94,-174.57 224.83,-397.23 324.52,-582.88 53.42,-99.47 106.32,-187.76 160.08,-288.65 165.42,-310.48 364.08,-718.31 615.77,-961.3 338.12,-326.4 661.18,-306.43 851.92,-740.59 96.88,-220.53 82.28,-510.65 -32.28,-721.9 -28.04,-51.7 -56.08,-94.51 -85.37,-143.82l-1079.14 -1852.39c-134.65,-228.58 -200.49,-367.12 -426.47,-483.66 -226.05,-116.59 -496.33,-111.25 -723.9,3.94 -229.09,115.96 -287.34,259.39 -424.09,485.82 -455.85,754.83 -875.63,1531.22 -1332.13,2288.3 -113.27,187.86 -220.99,377.32 -329.64,567.67l-664.84 1140.27c-55.12,93.07 -107.64,195.02 -163.53,285.08 -59.35,95.61 -114.17,188.45 -169.55,289.88 -150.74,276.01 -540.92,891.78 -660.3,1144.06 -212.25,448.5 -301.47,974.69 -172.28,1502.7 110.77,452.71 334.91,824.72 660.41,1144.12 151.6,148.75 335.95,273.52 526.88,375.21 525.44,279.85 975.4,261.44 1565.39,261.44 6724.86,0 13449.75,-16.01 20174.73,-7.79 306.17,0.38 524.96,-84.2 678.11,-240.45 310.56,-316.83 358.63,-850.29 7.87,-1177.26l-176.53 -163.59c-21.7,-18.8 -42.06,-29.06 -62.28,-48.26l-481.81 -419.39c-298.79,-219.91 -181.84,-410.54 -1.97,-675.86 204.19,-301.21 340.7,-633.08 328.46,-1026.31 -12.56,-403.66 -162.13,-751.81 -414.42,-1039.86l-175.58 -175.73c-75.87,-79.98 -145.41,-150.57 -219.2,-231.09 -23.06,-25.16 -31.61,-27.52 -59.67,-50.23 -122.57,-99.27 -209.85,-237.77 -329.41,-340.11 -144.82,-123.96 -255.5,-276.02 -404.62,-396.78 -39.03,-31.6 -79.54,-76.72 -114.51,-115.59 -58.36,-64.88 -156.7,-177.58 -221,-229.44 -126.65,-102.15 -231.49,-224.45 -338.85,-341.62 -23.06,-25.16 -31.61,-27.51 -59.67,-50.23 -102.88,-83.32 -193.59,-192.71 -281.71,-288.91l-452.33 -447.97c-115.5,-93.55 -221.96,-253.46 -335.51,-345.04 -163.91,-132.2 -315.42,-343.75 -448.92,-451.04 -126.08,-101.33 -227.06,-235.8 -343.84,-347.51 -23.94,-22.9 -35.43,-27.31 -61.4,-48.67 -68.35,-56.21 -202.55,-214.82 -272.73,-286.97l-121.44 -108.84c-106.99,-120.85 -213.91,-237.46 -339.86,-341.07 -117.61,-96.74 -215.22,-253.85 -335.03,-345.52 -58.99,-45.13 -66.85,-60.93 -111.59,-107.81 -91.12,-95.48 -175.84,-197.52 -281.23,-278.82 -61.38,-47.36 -218.38,-230.18 -284.32,-297.22 -37.29,-37.91 -82.81,-65.81 -116.03,-103.33 -106.31,-120.09 -215.16,-238.49 -339.86,-341.07 -63.1,-51.9 -162.05,-166.53 -219.23,-230.87 -23.69,-26.66 -30.1,-27.14 -59.14,-50.65 -72.95,-59.05 -214.06,-215.02 -281.73,-288.9 -42.9,-46.84 -75.97,-68.29 -119.42,-111.1 -113.91,-112.19 -207.34,-235.19 -332.9,-336.87 -82.64,-66.93 -152.73,-158.01 -227.86,-232.95 -38.08,-37.98 -74.53,-86.38 -113.94,-116.83 -149.78,-115.76 -247.44,-269.85 -392.23,-387.11 -102.89,-83.32 -193.59,-192.71 -281.71,-288.91l-458.3 -452.91c-85.1,-72.21 -137.72,-152.99 -236.37,-224.89 -179.17,-130.6 -422.79,-218.68 -707,-180.67z" fill="none" stroke="#2aa8ff" stroke-width="924.0000000000001" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mname">Main Circuit</span><span class="tlkb">TILKE</span></div><div class="msupport"><div class="mini rv d3"><svg viewBox="4433 69 20833 20877" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M7064.13 3704.6l412.84 -408.37 16147.64 16151.96c-68.94,105.85 -234.9,231.23 -395.48,231.23 -179.15,0 -251.71,-57.22 -360.91,-166.4l-15676.57 -15676.59c-36.66,-36.65 -101.87,-93.53 -127.52,-131.83zm-1365.8 -1538.7c0,-156.01 114.54,-326.7 233.4,-406.28l1437.12 1432.81 -414.95 419.22c-50.45,-73.6 -983.19,-963.85 -1134.63,-1143.12 -41.05,-48.6 -73.92,-93.41 -94.13,-156.56 -10.41,-32.52 -26.81,-106.62 -26.81,-146.07zm-43.22 -674.26c52.09,13.92 106.53,111.17 172.88,155.6 -58.99,88.09 -276.61,217.37 -276.61,518.66 0,302.84 223.42,461.15 430.05,667.78l16549.66 16549.67c114.62,114.62 310.09,337.44 439.83,390.03 189.04,76.6 377.44,78.29 555.74,-38.48 97.03,-63.55 151.88,-141.71 203.84,-176.5l119.1 114.32 297.96 -293.73 -18196.38 -18192.06 -224.75 220.43c-25.84,25.82 -61.35,46.9 -71.32,84.28z" fill="#cfd6e4" fill-rule="evenodd"/></svg><span class="mname">Drag Strip</span><span class="tlkb gray">SOKOL TEAM</span></div><div class="mini rv d4"><svg viewBox="7435 3205 14878 14542" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M15903.77 16136.2c2986.44,2023.38 5948.41,22.12 5394.01,-3236.4 -249.76,-1467.92 -2097.78,-1823.35 -2573.73,-1718.52 -2698.07,594.25 -6710.9,702.34 -5657.13,-3315.89 479.77,-1829.46 -651.51,-3156.79 -651.51,-3156.79 -1434.31,-1588.63 -8074.13,462.43 -929.6,7260.87 1863.92,1773.63 3760.25,3478.78 4417.96,4166.73z" fill="none" stroke="#cfd6e4" stroke-width="792.0000000000001" stroke-linecap="round" stroke-linejoin="round"/><path d="M11676.38 4309.16c0,0 602.58,-650.86 2429.38,-58.78 1826.81,592.08 2197.56,2617.91 2197.56,2617.91 0,0 375.05,1737.48 1198.67,3185.11 823.62,1447.62 2357.39,1178.06 2956.72,741.74 599.33,-436.32 1324.58,-1187.83 958.94,-2487.01 -365.65,-1299.18 -1691.99,-1534.67 -2204.17,-1496.17 -512.18,38.5 -1629,597.09 -2229.62,2224.68" fill="none" stroke="#cfd6e4" stroke-width="792.0000000000001" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mname">Drift Arena</span><span class="tlkb gray">SOKOL TEAM</span></div><div class="mini rv d5"><svg viewBox="5395 1399 18909 17854" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M9959.13 2700.15c-456.51,0 -826.59,370.08 -826.59,826.56l0 1184.78c0,903.44 -1092.11,1355.95 -1731.06,717.31 -260.2,-260.15 -704.98,-75.83 -704.98,292.07l0 2307.13c0,318.88 126.78,624.81 352.33,850.3l2819.82 2818.6c378.8,378.57 1026.07,110.3 1026.07,-425.16l0 -4246.98c0,-298.69 -118.74,-585.14 -329.87,-796.29 -638.86,-638.56 -186.59,-1730.75 716.86,-1730.75l1550.94 0 -81.91 -82.08c-411.03,-410.86 -411.03,-1077.22 0,-1488.12l227.69 -227.37 -3019.3 0zm0 -601.15c-788.48,0 -1427.71,639.23 -1427.71,1427.71l0 1184.78c0,367.9 -444.78,552.22 -704.98,292.16 -638.96,-638.73 -1731.09,-186.14 -1731.09,717.22l0 2307.13c0,478.43 190.11,937.24 528.5,1275.46l2819.87 2818.59c757.44,757.15 2052.15,220.7 2052.15,-850.31l0 -4246.98c0,-458.22 -181.84,-897.57 -505.72,-1221.45 -260.01,-259.92 -75.89,-704.47 291.56,-704.47l2152.83 0 1015.94 1016.03c176.56,176.05 176.56,461.59 0,637.73l-1209.06 1208.88c-338.88,338.28 -528.99,797.12 -528.99,1275.55l0 1725.35c0,578.23 229.93,1131.72 638.7,1540.35l2140.05 2139.14c284.06,283.98 284.06,744.52 0,1028.58l-220.16 220.38c-558.3,557.64 -558.3,1461.97 0,2019.52l223.17 223.57c557.55,557.24 1461.54,557.24 2019.09,0l151.77 -151.57c322.38,-322.6 845.37,-322.6 1168.48,0l514.73 514.95c557.55,557.25 1461.54,557.25 2019.09,0l1597.52 -1597c15.03,-14.66 29.31,-29.46 43.6,-44.42 11.27,-10.88 23.28,-22.01 34.56,-33.43l-2.27 -1.96c361.45,-399.59 562.84,-920.11 562.84,-1461.45l0 -9365.84c0,-1070.92 -1294.72,-1607.46 -2052.16,-850.31l-1481.81 1481.05c-520.75,520.58 -1411.19,151.72 -1411.19,-584.53l0 -2512.7c0,-788.48 -638.69,-1427.71 -1427.68,-1427.71l-7271.63 0zm12626.28 14328.66c267.51,-290.65 417.04,-671.93 417.04,-1068.62l0 -9365.84c0,-535.46 -647.73,-803.73 -1026.45,-425.15l-1481.05 1481.05c-899.47,899.15 -2437.63,262.1 -2437.63,-1009.69l0 -2512.7c0,-456.48 -369.72,-826.56 -826.56,-826.56l-2904.28 0c-318.59,0 -624.44,126.61 -849.85,351.97l-300.59 300.64c-176.57,176.06 -176.57,461.59 0,637.73l507.23 507.23 1184.24 0c788.99,0 1427.71,639.15 1427.71,1427.69l0 1110.99c0,418.62 166.82,820.12 462.87,1116.02l753.69 753.38c295.3,295.76 696.57,461.9 1115.11,461.9l1185.74 0c788.25,0 1427.72,639.23 1427.72,1427.71l0 144.42c0,788.48 -639.47,1427.71 -1427.72,1427.71l-2258.02 0c-802.51,0 -1540.44,-439.66 -1917.65,-1149.08 -368.95,-693.87 -785.24,-1480.76 -1184.24,-2237.29 -293.8,-557.1 -1139.17,-346.63 -1139.17,280.8l0 1700.41c0,418.48 166.83,819.12 462.9,1115.2l1635.83 1634.86c314.11,314.48 746.93,481.53 1191.03,460.12l911.48 -43.83 937.78 0c577.83,0 1132.38,229.42 1541.17,637.9l1631.35 1630.67c263.75,263.58 684.53,273.75 960.32,30.36zm-6340.54 -1670.57c143.53,457.08 33.82,976.38 -328.37,1338.51l-220.92 220.47c-322.35,322.8 -322.35,846.33 0,1169.13l223.93 223.57c323.11,322.57 846.11,322.57 1168.45,0l151.8 -151.57c557.56,-557.28 1460.77,-557.28 2018.33,0l515.49 514.95c323.11,322.66 846.1,322.66 1168.45,0l898.7 -898.42c-234.45,-51.46 -458.35,-168.61 -640.97,-351.28l-1631.34 -1630.66c-296.05,-295.76 -697.32,-461.91 -1115.85,-461.91l-923.5 0 -896.45 43.12c-130.76,6.33 -260.75,0.85 -387.75,-15.91zm-2250.53 -6698.76c387.01,19.54 767.97,221.24 989.64,642.42 398.99,756.15 815.29,1542.36 1183.5,2235.33 272.75,511.86 805.52,830.31 1387.13,830.31l2258.02 0c456.14,0 826.59,-370.05 826.59,-826.56l0 -144.42c0,-456.5 -370.45,-826.56 -826.59,-826.56l-1185.74 0c-577.83,0 -1131.64,-229.5 -1540.41,-637.9l-753.69 -753.38c-408.79,-408.71 -638.72,-963.11 -638.72,-1541.17l0 -1110.99c0,-456.57 -369.69,-826.57 -826.56,-826.57l-583.12 0 591.38 590.84c411.04,410.82 411.04,1077.17 0,1488.07l-881.43 880.58z" fill="#cfd6e4" fill-rule="evenodd"/></svg><span class="mname">Karting Track</span><span class="tlkb gray">SOKOL TEAM</span></div><div class="mini rv d6"><svg viewBox="2859 1751 23982 17512" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M23130.25 17436.92c824.79,441.21 1239,985.41 1664.65,-1246.72 329.44,-1727.62 907.38,-5045.31 726.5,-5398.64 -221.89,-433.47 -427.35,140.73 -1969.77,1426.24 -3032.63,2527.52 -3224.06,2996.24 -3135.28,1234.9 88.77,-1761.34 609.98,-2417.94 -1188.61,-1590.92 -1798.6,827.03 -1980.56,384.34 -1980.56,384.34l-3924.29 -2944.56c-372.95,-279.83 -1397.36,935.1 -1578.57,866.77 -181.21,-68.33 427.63,-1450.75 427.63,-1450.75 0,0 -279.31,-1247.03 -976.27,-1782.82 -696.96,-535.79 -4606.4,-3725.88 -4606.4,-3725.88 0,0 -496.06,-751.21 -1488.51,877.23 -992.46,1628.43 -962.57,1882.63 -955.84,2014.98 6.72,132.36 -66.41,775.43 730.44,228.65 796.85,-546.78 1272.85,-1310.79 1410.31,-802.37 137.46,508.42 450.01,2668.98 450.01,2668.98l2289.05 1741.54 926.23 -107.74c0,0 581.67,-35.31 165.77,527.59 -415.9,562.9 -919.49,1182.32 -982.15,1346.6 -62.66,164.27 -422.64,1021.19 621.96,709.92 1044.6,-311.27 2268.11,163.81 2317.54,195.28l2365.93 1506.04 2210.96 922.42 556.61 1718.2 2963.23 1111.7c0,0 582.37,522.1 1178.41,-703.79 596.04,-1225.89 1092.19,-1369.21 1202.72,-1166.57 110.53,202.63 578.3,1439.38 578.3,1439.38z" fill="none" stroke="#cfd6e4" stroke-width="924.0000000000001" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mname">Motocross</span><span class="tlkb gray">SOKOL TEAM</span></div><div class="mini rv d7"><svg viewBox="1455 2552 26788 15910" preserveAspectRatio="xMidYMid meet" style="width:185px;height:133px;overflow:visible"><path d="M17474.61 4653.51l-2182.01 1144.02c0,0 -498.78,152.41 -872.87,969.86 -374.08,817.44 -637.33,1828.86 -637.33,1828.86 0,0 -263.24,623.47 -1371.64,235.53 -1108.4,-387.94 -1427.07,-692.75 -1427.07,-692.75 0,0 -512.64,-443.36 -1011.42,-637.33 -498.78,-193.97 -803.59,-207.82 -1468.63,69.28 -665.04,277.1 -623.47,249.39 -1136.11,720.46 -512.64,471.07 -387.94,429.5 -900.58,498.78 -512.63,69.27 -1593.32,568.05 -1593.32,568.05l-1662.61 775.88c0,0 -748.17,872.87 41.57,1233.1 789.74,360.23 1163.82,-263.24 1163.82,-263.24 0,0 540.35,-180.12 983.71,96.98 443.36,277.1 290.95,138.55 637.33,526.49 346.37,387.94 1080.69,332.52 1080.69,332.52 0,0 631.82,-55.71 859.01,83.13 227.19,138.84 277.1,110.84 387.94,803.59 110.84,692.75 -19.25,1549.51 -166.26,2147.53 -147.01,598.03 -411.39,700.21 0,1288.52 411.39,588.3 360.23,734.32 928.29,595.77 568.05,-138.56 1898.13,-859.02 1898.13,-859.02l3449.9 -1233.09c0,0 1122.26,-332.52 1773.45,110.84 651.18,443.36 1274.66,817.44 1274.66,817.44 0,0 748.17,526.49 1690.31,457.22 942.14,-69.28 1052.98,-249.39 2258.37,-360.23 1205.39,-110.84 2286.08,290.95 2286.08,290.95 0,0 928.28,332.52 1524.05,-221.68 595.77,-554.2 330.18,-301.12 583.27,-841.29 253.08,-540.18 891.08,-2948.51 891.08,-2948.51 0,0 315.97,-473.95 -609.36,-1263.86 -925.33,-789.91 -3362.77,-3385.34 -3362.77,-3385.34 0,0 -315.97,-180.55 -45.14,-1466.98 270.83,-1286.43 -564.22,-1692.67 -564.22,-1692.67 0,0 -857.62,-473.94 -2121.48,-383.67 -1263.86,90.28 -2578.84,654.86 -2578.84,654.86z" fill="none" stroke="#cfd6e4" stroke-width="1034.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="mname">Off-road</span><span class="tlkb gray">SOKOL TEAM</span></div></div></div>
   </div>
 </section>
 
@@ -622,7 +662,7 @@ body.editing .deck-controls{display:none}
     <h1 class="big rv d2" style="font-size:58px">Main pit building & paddock</h1>
     <div class="duo">
       <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/pit-building.jpg')"></div><div class="dbody"><b>Main pit building</b><ul><li>Team garages</li><li>Race Control</li><li>Timing rooms</li><li>VIP suites</li><li>Press centre</li><li>Race direction & stewards</li></ul></div></div>
-      <div class="dcard rv d4"><div class="dimg ph">PHOTO</div><div class="dbody"><b>Paddock</b><ul><li>Racing teams</li><li>Technical trailers</li><li>Service vehicles</li><li>Scrutineering</li></ul></div></div>
+      <div class="dcard rv d4"><div class="dimg" style="background-image:url('assets/paddock-real.jpg')"></div><div class="dbody"><b>Paddock</b><ul><li>Racing teams</li><li>Technical trailers</li><li>Service vehicles</li><li>Scrutineering</li></ul></div></div>
     </div>
   </div>
 </section>
@@ -634,7 +674,7 @@ body.editing .deck-controls{display:none}
     <div class="kic rv d1">FIA GRADE 2 · SAFETY</div>
     <h1 class="big rv d2" style="font-size:58px">Medical & rescue on site</h1>
     <div class="duo">
-      <div class="dcard rv d3"><div class="dimg ph">PHOTO</div><div class="dbody"><b>Medical centre</b><ul><li>Medical post</li><li>First-aid rooms</li><li>Casualty evacuation zone</li><li>Anti-doping room</li></ul></div></div>
+      <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/medical-real.jpg')"></div><div class="dbody"><b>Medical centre</b><ul><li>Medical post</li><li>First-aid rooms</li><li>Casualty evacuation zone</li><li>Anti-doping room</li></ul></div></div>
       <div class="dcard rv d4"><div class="dimg ph">PHOTO</div><div class="dbody"><b>Fire & rescue service</b><ul><li>Fire trucks</li><li>Dedicated service building</li><li>Rapid track response</li><li>Rescue & intervention crews</li></ul></div></div>
     </div>
   </div>
@@ -647,8 +687,8 @@ body.editing .deck-controls{display:none}
     <div class="kic rv d1">FIA GRADE 2 · CONTROL</div>
     <h1 class="big rv d2" style="font-size:58px">Race control & spectators</h1>
     <div class="duo">
-      <div class="dcard rv d3"><div class="dimg ph">PHOTO</div><div class="dbody"><b>Race control tower</b><ul><li>Race Control</li><li>Timing</li><li>CCTV monitoring</li><li>Marshal communications</li><li>Safety systems control</li></ul></div></div>
-      <div class="dcard rv d4"><div class="dimg ph">PHOTO</div><div class="dbody"><b>Main grandstand</b><ul><li>Principal viewing zone</li><li>Overlooks the main circuit</li><li>Spectator capacity</li><li>Hospitality areas</li></ul></div></div>
+      <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/racecontrol-real.jpg')"></div><div class="dbody"><b>Race control tower</b><ul><li>Race Control</li><li>Timing</li><li>CCTV monitoring</li><li>Marshal communications</li><li>Safety systems control</li></ul></div></div>
+      <div class="dcard rv d4"><div class="dimg" style="background-image:url('assets/grandstand-real.jpg')"></div><div class="dbody"><b>Main grandstand</b><ul><li>Principal viewing zone</li><li>Overlooks the main circuit</li><li>Spectator capacity</li><li>Hospitality areas</li></ul></div></div>
     </div>
   </div>
 </section>
@@ -681,10 +721,14 @@ body.editing .deck-controls{display:none}
   <div class="ticks"></div>
   <div class="bird-word rv d1" style="font-size:240px">KA
 RT</div>
-  <div class="bird-cut" style="left:230px;width:1000px;bottom:90px"><img src="assets/cut-karting.png" alt=""></div>
+  <div class="bird-gallery g3 rv d2">
+    <div class="gt" style="background-image:url('assets/karting-real-3.jpg')"></div>
+    <div class="gt" style="background-image:url('assets/karting-real-1.jpg')"></div>
+    <div class="gt" style="background-image:url('assets/karting-real-2.jpg')"></div>
+  </div>
   <div class="bird-info">
     <div class="kic rv d2">BEYOND RACING</div>
-    <h1 class="big rv d3">Karting</h1>
+    <img class="blogo rv d3" src="assets/logos/real-karting.png" alt="Sokol Karting">
     <div class="accent rv d3"></div>
     <div class="birdfacts">
       <div class="rv d4"><b>Live racing</b> — SMP Karting series rounds held at Sokol</div>
@@ -699,7 +743,11 @@ RT</div>
   <div class="ticks"></div>
   <div class="bird-word rv d1" style="font-size:200px">HO
 TEL</div>
-  <div class="bird-photo rv d2" style="background-image:url('assets/hotel.jpg')"></div>
+  <div class="bird-gallery g3 rv d2">
+    <div class="gt" style="background-image:url('assets/hotel-real-3.jpg')"></div>
+    <div class="gt" style="background-image:url('assets/hotel-real-2.jpg')"></div>
+    <div class="gt" style="background-image:url('assets/hotel-real-1.jpg')"></div>
+  </div>
   <div class="bird-info">
     <div class="kic rv d2">BEYOND RACING</div>
     <img class="blogo rv d3" src="assets/logos/real-racehotel.png" alt="Sokol Race Hotel">
@@ -717,7 +765,10 @@ TEL</div>
   <div class="ticks"></div>
   <div class="bird-word rv d1" style="font-size:200px">MUS
 EUM</div>
-  <div class="bird-cut" style="left:300px;width:880px;bottom:230px"><img src="assets/cut-museum.png" alt=""></div>
+  <div class="bird-gallery g2 rv d2">
+    <div class="gt" style="background-image:url('assets/museum-real-1.jpg')"></div>
+    <div class="gt" style="background-image:url('assets/museum-real-2.jpg')"></div>
+  </div>
   <div class="bird-info">
     <div class="kic rv d2">BEYOND RACING</div>
     <img class="blogo rv d3" src="assets/logos/real-museum.png" alt="Sokol Museum">
@@ -735,7 +786,10 @@ EUM</div>
   <div class="ticks"></div>
   <div class="bird-word rv d1" style="font-size:160px">PAINT
 BALL</div>
-  <div class="bird-cut" style="left:360px;width:680px;bottom:80px"><img src="assets/cut-paintball.png" alt=""></div>
+  <div class="bird-gallery g2 rv d2">
+    <div class="gt" style="background-image:url('assets/paintball-real-1.jpg')"></div>
+    <div class="gt" style="background-image:url('assets/paintball-real-2.jpg')"></div>
+  </div>
   <div class="bird-info">
     <div class="kic rv d2">BEYOND RACING</div>
     <img class="blogo rv d3" src="assets/logos/real-paintball.png" alt="Sokol Paintball">
@@ -872,35 +926,28 @@ function locReset(){
   ZL.forEach(l=>setL(l,0,.25));cloudsOff();
 }
 function locFinal(){
-  ZL.forEach((l,i)=>setL(l,i===ZL.length-1?1:0,1));
+  ZL.forEach((l,i)=>setL(l,i===ZL.length-1?1:0,i===ZL.length-1?1.18:1));
   zdot.style.opacity=0;cloudsOff();locSlide.classList.add('done');
 }
-const Z_HOLD=550,Z_STAGE=430,Z_STAGES=ZL.length-1; // exponential: 4x per STAGE ms, no pauses
+const Z_HOLD=350,Z_STAGE=290,Z_STAGES=ZL.length-1; // exponential: 4x per STAGE ms, no pauses
 function locApply(el){ // render continuous-zoom state for elapsed ms; returns zoom position k
   const k=Math.min(Z_STAGES,Math.max(0,el-Z_HOLD)/Z_STAGE);
   const i=Math.min(Z_STAGES-1,Math.floor(k)),f=k-i;
-  const c=(k-(Z_STAGES-1.4))/1.4;       // cloud-descent progress over the last 1.4 stages
-  const swapped=c>=.5;                   // at the whiteout peak the camera "lands"
+  const c=(k-(Z_STAGES-1.4))/1.4;       // descent progress over the last 1.4 stages
+  const vf=c>0?Math.min(1,Math.max(0,(c-.1)/.6)):0; // video crossfade-in
+  const vs=vf*vf*(3-2*vf);
   ZL.forEach((l,j)=>{
     if(j===Z_STAGES){
-      /* video NEVER animates in: it stands full-screen behind the whiteout and is
-         revealed only by the clouds clearing — like the drone just arrived from space */
-      setL(l,swapped?1:0,1,0,swapped?Math.max(0,1-(c-.5)/.38)*10:0);
-    }else if(j===i&&!swapped)setL(l,1,Math.pow(4,f),0,f*6);          // coarse: defocuses rushing past
-    else if(j===i+1&&j<Z_STAGES&&!swapped){                           // fine sat layer: focuses in
+      /* drone video crossfades straight in over the final satellite layer — no clouds, no whiteout */
+      setL(l,vs,1.18,0,(1-vs)*6);
+    }else if(j===i)setL(l,Math.max(0,1-vs),Math.pow(4,f),0,f*6);     // coarse: defocuses rushing past, fades under video
+    else if(j===i+1&&j<Z_STAGES){                                    // fine sat layer: focuses in
       const e=Math.min(1,f/.7),s=e*e*(3-2*e);
-      setL(l,s,Math.pow(4,f-1),0,(1-s)*9);
+      setL(l,s*Math.max(0,1-vs),Math.pow(4,f-1),0,(1-s)*9);
     }else setL(l,0,j<i?4:.25);
   });
   if(k>Z_STAGES-1.4)zdot.style.opacity=String(Math.max(0,1-c*2.4));
-  if(c>0&&c<1){
-    const b1=Math.pow(Math.sin(Math.PI*c),1.4);
-    setL(zcl1,Math.min(1,b1*1.3),1+c*7,c*9);
-    const c2=Math.max(0,(c-.07)/.93),b2=Math.pow(Math.sin(Math.PI*c2),1.5);
-    setL(zcl2,Math.min(1,b2*1.2),.7+c*5.4,-c*7);
-    /* veil peaks ~0.97 right at the swap so the cut is invisible */
-    zwhite.style.opacity=String(Math.min(.97,Math.max(0,Math.pow(Math.sin(Math.PI*c),1.1)*1.28-.16)));
-  }else cloudsOff();
+  cloudsOff();
   return k;
 }
 function locPlay(){
