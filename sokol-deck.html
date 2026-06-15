@@ -407,10 +407,10 @@ h1 .fill{color:#fff;-webkit-text-stroke:0}
 .s-morph .layer svg{width:100%;height:100%;overflow:visible;max-width:none;max-height:none}
 .s-morph .layer .tk{filter:none}
 .s-morph .layer.p0{transform:translate(-50%,-50%) scale(1);filter:none;opacity:1;z-index:30}
-.s-morph .layer.p1{transform:translate(-50%,-50%) scale(.92);filter:none;opacity:0;z-index:20}
-.s-morph .layer.p2{transform:translate(-50%,-50%) scale(.92);filter:none;opacity:0;z-index:10}
-.s-morph .layer.hid{transform:translate(-50%,-50%) scale(.92);filter:none;opacity:0;z-index:5}
-.s-morph .layer.out{transform:translate(-50%,-50%) scale(1.08);filter:none;opacity:0;z-index:35}
+.s-morph .layer.p1{transform:translate(-8%,-72%) scale(.55);filter:blur(7px) brightness(.7) saturate(.85);opacity:.45;z-index:20}
+.s-morph .layer.p2{transform:translate(28%,-86%) scale(.38);filter:blur(12px) brightness(.5);opacity:.25;z-index:10}
+.s-morph .layer.hid{transform:translate(48%,-95%) scale(.3);filter:blur(16px);opacity:0;z-index:5}
+.s-morph .layer.out{transform:translate(-115%,-28%) scale(1.18);filter:blur(10px) brightness(.55);opacity:0;z-index:35}
 .notrans .s-morph .layer{transition:none}
 .minfo{position:absolute;left:120px;top:50%;transform:translateY(-50%);width:640px;z-index:32}
 .minfo .nm{font-family:'Orbitron','Russo One',sans-serif;font-weight:900;font-size:74px;line-height:.98;text-transform:uppercase;margin:14px 0 6px}
@@ -598,6 +598,45 @@ body.editing .deck-controls{display:none}
   </div>
 </section>
 
+<!-- ============ A5 · FACILITIES: PIT + PADDOCK ============ -->
+<section class="slide s-teams" data-block="0">
+  <div class="grid-tel"></div><div class="ticks"></div>
+  <div class="wrap">
+    <div class="kic rv d1">FIA GRADE 2 · THE COMPLEX</div>
+    <h1 class="big rv d2" style="font-size:58px">Main pit building & paddock</h1>
+    <div class="duo">
+      <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/fire-rescue-real.jpg')"></div><div class="dbody"><b>Main pit building</b><ul><li>Team garages</li><li>Race Control</li><li>Timing rooms</li><li>VIP suites</li><li>Press centre</li><li>Race direction & stewards</li></ul></div></div>
+      <div class="dcard rv d4"><div class="dimg" style="background-image:url('assets/paddock-real.jpg')"></div><div class="dbody"><b>Paddock</b><ul><li>Space for 250 vehicles</li><li>Technical trailers</li><li>Helipads on site</li><li>Scrutineering</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A6 · MEDICAL + MEDIA CENTRE ============ -->
+<section class="slide s-teams" data-block="0">
+  <div class="grid-tel"></div><div class="ticks"></div>
+  <div class="wrap">
+    <div class="kic rv d1">FIA GRADE 2 · FACILITIES</div>
+    <h1 class="big rv d2" style="font-size:58px">Medical & media centre</h1>
+    <div class="duo">
+      <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/medical-real.jpg')"></div><div class="dbody"><b>Medical centre</b><ul><li>Medical post</li><li>First-aid rooms</li><li>Casualty evacuation zone</li><li>Anti-doping room</li></ul></div></div>
+      <div class="dcard rv d4"><div class="dimg" style="background-image:url('assets/media-center-real.jpg')"></div><div class="dbody"><b>Media centre</b><ul><li>Press work room</li><li>Trackside view over the grandstand</li><li>Banks of live monitors</li><li>Briefings & interviews</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A7 · RACE CONTROL + GRANDSTAND ============ -->
+<section class="slide s-teams" data-block="0">
+  <div class="grid-tel"></div><div class="ticks"></div>
+  <div class="wrap">
+    <div class="kic rv d1">FIA GRADE 2 · CONTROL</div>
+    <h1 class="big rv d2" style="font-size:58px">Race control & spectators</h1>
+    <div class="duo">
+      <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/racecontrol-real.jpg')"></div><div class="dbody"><b>Race control tower</b><ul><li>Race Control</li><li>Timing</li><li>CCTV monitoring</li><li>Marshal communications</li><li>Safety systems control</li></ul></div></div>
+      <div class="dcard rv d4"><div class="dimg" style="background-image:url('assets/grandstand-real.jpg')"></div><div class="dbody"><b>Main grandstand</b><ul><li>74,000 at the main circuit</li><li>up to 105,000 across the venue</li><li>Overlooks the main circuit</li><li>Hospitality areas</li><li>35,000 parking spaces ⚠ to confirm</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ A3 · LOCATION (satellite zoom -> drone video) ============ -->
 <section class="slide s-loc" data-block="0">
   <div class="zoomfx" id="zoomfx">
@@ -670,45 +709,6 @@ body.editing .deck-controls{display:none}
     <h1 class="big rv d2" style="font-size:58px;margin-top:36px">Sokol in motion</h1>
     <div class="en-sub rv d3">Event highlights</div>
     <div class="genb rv d4" style="margin-top:30px">⚠ video placeholder — clip to be added</div>
-  </div>
-</section>
-
-<!-- ============ C1 · FACILITIES: PIT + RACE CONTROL ============ -->
-<section class="slide s-teams" data-block="2">
-  <div class="grid-tel"></div><div class="ticks"></div>
-  <div class="wrap">
-    <div class="kic rv d1">FIA GRADE 2 · THE COMPLEX</div>
-    <h1 class="big rv d2" style="font-size:58px">Main pit building & paddock</h1>
-    <div class="duo">
-      <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/pit-building.jpg')"></div><div class="dbody"><b>Main pit building</b><ul><li>Team garages</li><li>Race Control</li><li>Timing rooms</li><li>VIP suites</li><li>Press centre</li><li>Race direction & stewards</li></ul></div></div>
-      <div class="dcard rv d4"><div class="dimg" style="background-image:url('assets/paddock-real.jpg')"></div><div class="dbody"><b>Paddock</b><ul><li>Space for 250 vehicles</li><li>Technical trailers</li><li>Helipads on site</li><li>Scrutineering</li></ul></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ C2 · MEDICAL + FIRE & RESCUE ============ -->
-<section class="slide s-teams" data-block="2">
-  <div class="grid-tel"></div><div class="ticks"></div>
-  <div class="wrap">
-    <div class="kic rv d1">FIA GRADE 2 · SAFETY</div>
-    <h1 class="big rv d2" style="font-size:58px">Medical & rescue on site</h1>
-    <div class="duo">
-      <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/medical-real.jpg')"></div><div class="dbody"><b>Medical centre</b><ul><li>Medical post</li><li>First-aid rooms</li><li>Casualty evacuation zone</li><li>Anti-doping room</li></ul></div></div>
-      <div class="dcard rv d4"><div class="dimg" style="background-image:url('assets/fire-rescue-real.jpg')"></div><div class="dbody"><b>Fire & rescue service</b><ul><li>Fire trucks</li><li>Dedicated service building</li><li>Rapid track response</li><li>Rescue & intervention crews</li></ul></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ C3 · RACE CONTROL TOWER + GRANDSTAND ============ -->
-<section class="slide s-teams" data-block="2">
-  <div class="grid-tel"></div><div class="ticks"></div>
-  <div class="wrap">
-    <div class="kic rv d1">FIA GRADE 2 · CONTROL</div>
-    <h1 class="big rv d2" style="font-size:58px">Race control & spectators</h1>
-    <div class="duo">
-      <div class="dcard rv d3"><div class="dimg" style="background-image:url('assets/racecontrol-real.jpg')"></div><div class="dbody"><b>Race control tower</b><ul><li>Race Control</li><li>Timing</li><li>CCTV monitoring</li><li>Marshal communications</li><li>Safety systems control</li></ul></div></div>
-      <div class="dcard rv d4"><div class="dimg" style="background-image:url('assets/grandstand-real.jpg')"></div><div class="dbody"><b>Main grandstand</b><ul><li>74,000 at the main circuit</li><li>up to 105,000 across the venue</li><li>Overlooks the main circuit</li><li>Hospitality areas</li><li>35,000 parking spaces ⚠ to confirm</li></ul></div></div>
-    </div>
   </div>
 </section>
 
